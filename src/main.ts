@@ -2,7 +2,6 @@
 TODO
 https://github.com/marketplace/actions/chrome-extension-upload-publish
 https://github.com/marketplace/actions/chrome-extension-upload-action
-https://developer.chrome.com/docs/extensions/mv3/manifest/
 */
 
 import * as XLSX from "xlsx"
