@@ -61,6 +61,7 @@ function parseWorkdayData(sheet: XLSX.WorkSheet) {
     const meetingPatternsRegex = /([MTWRF-]*) \| (.*) - (.*) \| ?(.*)/
     const parsedData = XLSX.utils
         .sheet_to_json<WorkdayDataRow>(sheet, {
+            raw: false,
             range: 'A1:L50',
             header: [
                 '', 'Course Listing', 'Credits', 'Grading Basis', 'Section',
