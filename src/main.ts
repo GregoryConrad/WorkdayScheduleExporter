@@ -8,14 +8,26 @@ https://developer.chrome.com/docs/extensions/mv3/manifest/
 import * as XLSX from "xlsx"
 import { ics } from "./ics"
 
+/**
+ * @returns the export excel spreadsheet button on Workday
+ */
 function getExportButton() {
     return document.querySelector('div[title="Export to Excel"]') as HTMLElement
 }
 
+/**
+ * @returns the Workday dialog close button
+ */
 function getCloseDialogButton() {
     return document.querySelector('div[aria-label="Close"]') as HTMLElement
 }
 
+/**
+ * Jumps through hoops to fetch the actual excel file Workday exports
+ * 
+ * @param url the url used by Workday to request the excel spreadsheet
+ * @returns the bytes of the excel spreadsheet
+ */
 function fetchWorkdaySpreadsheet(url: string) {
     return fetch(url)
         .then(response => response.json())
@@ -25,6 +37,9 @@ function fetchWorkdaySpreadsheet(url: string) {
         .then(response => response.arrayBuffer())
 }
 
+/**
+ * Represents a row in the Workday excel spreadsheet
+ */
 interface WorkdayDataRow {
     ''?: string
     'Course Listing'?: string
@@ -40,6 +55,11 @@ interface WorkdayDataRow {
     'End Date'?: string
 }
 
+/**
+ * Converts Workday day format to ics day format
+ * @param workdayFormat the Workday "Meeting Patterns" list of days
+ * @returns array of days in ics format
+ */
 function convertDayOfWeekFormat(workdayFormat: string) {
     const conversion: { [key: string]: string } = {
         'M': 'MO',
@@ -53,6 +73,10 @@ function convertDayOfWeekFormat(workdayFormat: string) {
     return [...workdayFormat].filter(c => conversion.hasOwnProperty(c)).map(c => conversion[c])
 }
 
+/**
+ * Creates and downloads the schedule based on the given Workday spreadsheet
+ * @param sheet the Workday spreadsheet to convert into a schedule
+ */
 function createSchedule(sheet: XLSX.WorkSheet) {
     const meetingPatternsRegex = /([MTWRFSU-]*) \| (.*) - (.*) \| ?(.*)/
     const schedule = ics()!
@@ -85,11 +109,23 @@ function createSchedule(sheet: XLSX.WorkSheet) {
     schedule.download('schedule', '.ics')
 }
 
-function downloadScheduleCSV() {
+/**
+ * Starts the download of the schedule
+ * This is meant for the onclick of the download schedule button
+ * 
+ * Workday can't be simple, so we:
+ * - Manually tell workday to download the excel spreadsheet
+ * - Listen to the outbound network request Workday makes so we can replicate it
+ *   - This occurs over in worker.js
+ * - Perform some clean up work
+ * - Replicate this outbound network request ourselves with some twists
+ * - Process the returned spreadsheet and create the schedule
+ */
+function startScheduleDownload() {
     chrome.runtime.onMessage.addListener(async function listener(url: string) {
-        chrome.runtime.onMessage.removeListener(listener)
 
-        // Close the opened dialog
+        // Clean up
+        chrome.runtime.onMessage.removeListener(listener)
         getCloseDialogButton().click()
 
         // Create the CSV
@@ -100,26 +136,36 @@ function downloadScheduleCSV() {
     getExportButton().click()
 }
 
+// The static id of the download schedule button so we can access it
 const downloadButtonId = 'com-gsconrad-workday-schedule-exporter'
 
+/**
+ * Adds the download schedule button to the "View My Courses" page
+ */
 function addDownloadButton() {
     const downloadButton = document.createElement('button')
     downloadButton.id = downloadButtonId
     downloadButton.appendChild(document.createTextNode('Download Schedule'))
-    downloadButton.onclick = downloadScheduleCSV
+    downloadButton.onclick = startScheduleDownload
     downloadButton.style.marginLeft = '24px'
     getExportButton().parentElement?.parentElement?.appendChild(downloadButton)
 }
 
-function removeDownloadButton() {
+/**
+ * Removes the download schedule button from the current page if it is there
+ */
+function removeDownloadButtonIfPresent() {
     const downloadButton = document.getElementById(downloadButtonId)
     downloadButton?.parentElement?.removeChild(downloadButton)
 }
 
+// Inject the download button if needed after page load
+// Workday sucks so we have to listen for mutations of the document title
+// (The document title is a placeholder until the page fully loads)
 window.addEventListener('load', () => {
-    removeDownloadButton()
+    removeDownloadButtonIfPresent()
     new MutationObserver(() => {
-        removeDownloadButton()
+        removeDownloadButtonIfPresent()
         const onViewCoursesPage = document.title.indexOf('View My Courses') === 0
         if (onViewCoursesPage) addDownloadButton()
     }).observe(
