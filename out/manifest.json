@@ -5,8 +5,18 @@
     "version": "1.0",
     "content_scripts": [
         {
-            "matches": ["https://wd5.myworkday.com/*"],
-            "js": ["main.js"]
+            "matches": [
+                "https://wd5.myworkday.com/*"
+            ],
+            "js": [
+                "main.js"
+            ]
         }
+    ],
+    "permissions": [
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://wd5.myworkday.com/*"
     ]
 }
