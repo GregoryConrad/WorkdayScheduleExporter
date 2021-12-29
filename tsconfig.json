@@ -4,6 +4,7 @@
         "module": "commonjs",
         "target": "ES2015",
         "esModuleInterop": true,
+        "allowJs": true,
         "rootDir": "src",
         "outDir": "out"
     }

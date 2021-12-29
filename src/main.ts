@@ -6,6 +6,7 @@ https://developer.chrome.com/docs/extensions/mv3/manifest/
 */
 
 import * as XLSX from "xlsx"
+import { ics } from "./ics"
 
 function getExportButton() {
     return document.querySelector('div[title="Export to Excel"]') as HTMLElement
@@ -24,14 +25,6 @@ function fetchWorkdaySpreadsheet(url: string) {
         .then(response => response.arrayBuffer())
 }
 
-function downloadCSV(text: string) {
-    const a = document.createElement('a')
-    a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(text)
-    a.download = 'schedule.csv'
-    a.style.display = 'none'
-    a.click()
-}
-
 interface WorkdayDataRow {
     ''?: string
     'Course Listing'?: string
@@ -47,19 +40,23 @@ interface WorkdayDataRow {
     'End Date'?: string
 }
 
-interface ScheduleDataRow {
-    'Subject': string,
-    'Start Date': string
-    'End Date': string
-    'Start Time': string
-    'End Time': string
-    'Location': string
-    'Description': string
+function convertDayOfWeekFormat(workdayFormat: string) {
+    const conversion: { [key: string]: string } = {
+        'M': 'MO',
+        'T': 'TU',
+        'W': 'WE',
+        'R': 'TH',
+        'F': 'FR',
+        'S': 'SA',
+        'U': 'SU',
+    }
+    return [...workdayFormat].filter(c => conversion.hasOwnProperty(c)).map(c => conversion[c])
 }
 
-function parseWorkdayData(sheet: XLSX.WorkSheet) {
+function createSchedule(sheet: XLSX.WorkSheet) {
     const meetingPatternsRegex = /([MTWRFSU-]*) \| (.*) - (.*) \| ?(.*)/
-    const parsedData = XLSX.utils
+    const schedule = ics()!
+    XLSX.utils
         .sheet_to_json<WorkdayDataRow>(sheet, {
             raw: false,
             range: 'A1:L50',
@@ -70,20 +67,22 @@ function parseWorkdayData(sheet: XLSX.WorkSheet) {
             ],
         })
         .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
-        .map(row => {
+        .forEach(row => {
             const captureGroups = meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!
-            return <ScheduleDataRow>{
-                'Subject': row['Course Listing'],
-                'Start Date': row['Start Date'],
-                'End Date': row['End Date'],
-                'Start Time': captureGroups[2],
-                'End Time': captureGroups[3],
-                'Location': captureGroups[4],
-                'Description': `${row['Section']} with ${row['Instructor']}`,
-            }
+            schedule.addEvent(
+                row['Course Listing']!,
+                `${row['Section']} with ${row['Instructor']}`,
+                captureGroups[4],
+                `${row['Start Date']} ${captureGroups[2]}`,
+                `${row['Start Date']} ${captureGroups[3]}`,
+                {
+                    freq: 'WEEKLY',
+                    until: `${row['End Date']} ${captureGroups[3]}`,
+                    byday: convertDayOfWeekFormat(captureGroups[1]),
+                },
+            )
         })
-    const toExport = XLSX.utils.json_to_sheet(parsedData)
-    return XLSX.utils.sheet_to_csv(toExport)
+    schedule.download('schedule', '.ics')
 }
 
 function downloadScheduleCSV() {
@@ -96,7 +95,7 @@ function downloadScheduleCSV() {
         // Create the CSV
         const bytes = await fetchWorkdaySpreadsheet(url)
         const workbook = XLSX.read(bytes, { type: 'array' })
-        downloadCSV(parseWorkdayData(workbook.Sheets[workbook.SheetNames[0]]))
+        createSchedule(workbook.Sheets[workbook.SheetNames[0]])
     })
     getExportButton().click()
 }
