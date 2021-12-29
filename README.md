@@ -22,6 +22,7 @@ To get started:
 
 ## TODO
 - Update Chrome Web Store icon with `store-icon.png`
+- Add extension web store page to this readme
 - https://github.com/marketplace/actions/chrome-extension-upload-publish
 - OR
 - https://github.com/marketplace/actions/chrome-extension-upload-action
