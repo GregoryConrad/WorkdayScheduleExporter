@@ -2,7 +2,14 @@
     "manifest_version": 2,
     "name": "Workday Schedule Exporter",
     "description": "Adds the functionality to export a course schedule from Workday",
-    "version": "1.0",
+    "version": "1.0.0",
+    "author": "Gregory Conrad",
+    "icons": {
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "48": "icon48.png",
+        "64": "icon64.png"
+    },
     "permissions": [
         "webRequest",
         "https://wd5.myworkday.com/*"
