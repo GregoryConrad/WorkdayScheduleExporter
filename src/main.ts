@@ -5,7 +5,7 @@ https://github.com/marketplace/actions/chrome-extension-upload-action
 https://developer.chrome.com/docs/extensions/mv3/manifest/
 */
 
-import * as XLSX from "xlsx";
+import * as XLSX from "xlsx"
 
 function getExportButton() {
     return document.querySelector('div[title="Export to Excel"]') as HTMLElement
@@ -56,12 +56,30 @@ function downloadScheduleCSV() {
     getExportButton().click()
 }
 
+const exportButtonId = 'com-gsconrad-workday-schedule-exporter'
+
 function addDownloadButton() {
-    const downloadButton = document.createElement('button');
+    const downloadButton = document.createElement('button')
+    downloadButton.id = exportButtonId
     downloadButton.appendChild(document.createTextNode('Download Schedule'))
-    downloadButton.onclick = downloadScheduleCSV;
+    downloadButton.onclick = downloadScheduleCSV
+    downloadButton.style.marginLeft = '24px'
     getExportButton().parentElement?.parentElement?.appendChild(downloadButton)
 }
 
-const onViewCoursesPage = document.querySelector('span[title="View My Courses"]')
-if (onViewCoursesPage) addDownloadButton()
+function removeDownloadButtonIfNeeded() {
+    const downloadButton = document.getElementById(exportButtonId)
+    downloadButton?.parentElement?.removeChild(downloadButton)
+}
+
+window.addEventListener('load', () => {
+    removeDownloadButtonIfNeeded()
+    new MutationObserver(() => {
+        removeDownloadButtonIfNeeded()
+        const onViewCoursesPage = document.title.indexOf('View My Courses') === 0
+        if (onViewCoursesPage) addDownloadButton()
+    }).observe(
+        document.querySelector('title')!,
+        { subtree: true, characterData: true, childList: true }
+    );
+})
