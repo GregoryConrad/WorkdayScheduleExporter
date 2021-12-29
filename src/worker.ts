@@ -9,6 +9,6 @@ chrome.webRequest.onCompleted.addListener(async ({ url }) => {
             chrome.tabs.sendMessage(tab.id!, url)
         })
     } catch (exception) {
-        console.log('Failed to notify the curent tab of the request url', exception)
+        console.log('Failed to notify the current tab of the request url', exception)
     }
 }, { urls: ["https://wd5.myworkday.com/*"] })
