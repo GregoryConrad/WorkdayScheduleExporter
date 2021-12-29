@@ -57,11 +57,11 @@ function downloadScheduleCSV() {
     getExportButton().click()
 }
 
-const exportButtonId = 'com-gsconrad-workday-schedule-exporter'
+const downloadButtonId = 'com-gsconrad-workday-schedule-exporter'
 
 function addDownloadButton() {
     const downloadButton = document.createElement('button')
-    downloadButton.id = exportButtonId
+    downloadButton.id = downloadButtonId
     downloadButton.appendChild(document.createTextNode('Download Schedule'))
     downloadButton.onclick = downloadScheduleCSV
     downloadButton.style.marginLeft = '24px'
@@ -69,7 +69,7 @@ function addDownloadButton() {
 }
 
 function removeDownloadButtonIfNeeded() {
-    const downloadButton = document.getElementById(exportButtonId)
+    const downloadButton = document.getElementById(downloadButtonId)
     downloadButton?.parentElement?.removeChild(downloadButton)
 }
 
