@@ -32,23 +32,70 @@ function downloadCSV(text: string) {
     a.click()
 }
 
-function parseWorkdayData(data: any[]) {
-    // TODO implement
-    return JSON.stringify(data)
+interface WorkdayDataRow {
+    ''?: string
+    'Course Listing'?: string
+    'Credits'?: string
+    'Grading Basis'?: string
+    'Section'?: string
+    'Instructional Format'?: string
+    'Delivery Mode'?: string
+    'Meeting Patterns'?: string
+    'Registration Status'?: string
+    'Instructor'?: string
+    'Start Date'?: string
+    'End Date'?: string
+}
+
+interface ScheduleDataRow {
+    'Subject': string,
+    'Start Date': string
+    'End Date': string
+    'Start Time': string
+    'End Time': string
+    'Location': string
+    'Description': string
+}
+
+function parseWorkdayData(sheet: XLSX.WorkSheet) {
+    const meetingPatternsRegex = /([MTWRF-]*) \| (.*) - (.*) \| ?(.*)/
+    const parsedData = XLSX.utils
+        .sheet_to_json<WorkdayDataRow>(sheet, {
+            range: 'A1:L50',
+            header: [
+                '', 'Course Listing', 'Credits', 'Grading Basis', 'Section',
+                'Instructional Format', 'Delivery Mode', 'Meeting Patterns',
+                'Registration Status', 'Instructor', 'Start Date', 'End Date',
+            ],
+        })
+        .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
+        .map(row => {
+            const captureGroups = meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!
+            return <ScheduleDataRow>{
+                'Subject': row['Course Listing'],
+                'Start Date': row['Start Date'],
+                'End Date': row['End Date'],
+                'Start Time': captureGroups[2],
+                'End Time': captureGroups[3],
+                'Location': captureGroups[4],
+                'Description': `${row['Section']} with ${row['Instructor']}`,
+            }
+        })
+    const toExport = XLSX.utils.json_to_sheet(parsedData)
+    return XLSX.utils.sheet_to_csv(toExport)
 }
 
 function downloadScheduleCSV() {
-    chrome.runtime.onMessage.addListener(function listener(url: string) {
+    chrome.runtime.onMessage.addListener(async function listener(url: string) {
         chrome.runtime.onMessage.removeListener(listener)
 
         // Close the opened dialog
         getCloseDialogButton().click()
 
         // Create the CSV
-        const bytes = fetchWorkdaySpreadsheet(url)
+        const bytes = await fetchWorkdaySpreadsheet(url)
         const workbook = XLSX.read(bytes, { type: 'array' })
-        const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]])
-        downloadCSV(parseWorkdayData(data))
+        downloadCSV(parseWorkdayData(workbook.Sheets[workbook.SheetNames[0]]))
     })
     getExportButton().click()
 }
@@ -78,5 +125,5 @@ window.addEventListener('load', () => {
     }).observe(
         document.querySelector('title')!,
         { subtree: true, characterData: true, childList: true }
-    );
+    )
 })
