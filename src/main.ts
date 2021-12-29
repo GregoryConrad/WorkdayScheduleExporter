@@ -58,7 +58,7 @@ interface ScheduleDataRow {
 }
 
 function parseWorkdayData(sheet: XLSX.WorkSheet) {
-    const meetingPatternsRegex = /([MTWRF-]*) \| (.*) - (.*) \| ?(.*)/
+    const meetingPatternsRegex = /([MTWRFSU-]*) \| (.*) - (.*) \| ?(.*)/
     const parsedData = XLSX.utils
         .sheet_to_json<WorkdayDataRow>(sheet, {
             raw: false,
