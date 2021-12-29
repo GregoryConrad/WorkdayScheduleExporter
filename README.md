@@ -19,3 +19,9 @@ If not, it should be easily adaptable in `main.ts`.
 To get started:
 - `npm install`
 - `npm run build` (also configured as a VS Code build task)
+
+## TODO
+- Update Chrome Web Store icon with `store-icon.png`
+- https://github.com/marketplace/actions/chrome-extension-upload-publish
+- OR
+- https://github.com/marketplace/actions/chrome-extension-upload-action

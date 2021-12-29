@@ -1,9 +1,3 @@
-/*
-TODO
-https://github.com/marketplace/actions/chrome-extension-upload-publish
-https://github.com/marketplace/actions/chrome-extension-upload-action
-*/
-
 import * as XLSX from "xlsx"
 import { ics } from "./ics"
 
