@@ -1,7 +1,7 @@
 {
   "name": "workday-schedule-exporter",
   "version": "1.0.0",
-  "description": "Adds the functionality to export a course schedule from Workday as a CSV",
+  "description": "Adds the functionality to export a course schedule from Workday",
   "main": "index.js",
   "author": "Gregory Conrad",
   "license": "MIT",
