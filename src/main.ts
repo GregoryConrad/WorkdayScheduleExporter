@@ -46,7 +46,7 @@ function downloadScheduleCSV() {
 
         // Create the CSV
         const bytes = fetchWorkdaySpreadsheet(url)
-        const workbook = XLSX.read(bytes, { type: 'binary' })
+        const workbook = XLSX.read(bytes, { type: 'array' })
         const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]])
         downloadCSV(parseWorkdayData(data))
     })
