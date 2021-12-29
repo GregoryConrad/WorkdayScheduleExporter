@@ -1,6 +1,9 @@
 # Generated js
 out/*.js
 
+# Generated extension zip
+extension.zip
+
 # Logs
 logs
 *.log
