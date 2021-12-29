@@ -3,6 +3,12 @@
     "name": "Workday Schedule Exporter",
     "description": "Adds the functionality to export a course schedule from Workday as a CSV",
     "version": "1.0",
+    "permissions": [
+        "webRequest"
+    ],
+    "host_permissions": [
+        "https://wd5.myworkday.com/*"
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -13,10 +19,7 @@
             ]
         }
     ],
-    "permissions": [
-        "webRequest"
-    ],
-    "host_permissions": [
-        "https://wd5.myworkday.com/*"
-    ]
+    "background": {
+        "service_worker": "worker.js"
+    }
 }

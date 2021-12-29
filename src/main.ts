@@ -3,7 +3,6 @@ TODO
 https://github.com/marketplace/actions/chrome-extension-upload-publish
 https://github.com/marketplace/actions/chrome-extension-upload-action
 https://developer.chrome.com/docs/extensions/mv3/manifest/
-Add vs code task for build
 */
 
 import * as XLSX from "xlsx"
@@ -39,10 +38,8 @@ function parseWorkdayData(data: any[]) {
 }
 
 function downloadScheduleCSV() {
-    const requestCompletedCallback = ({ url }: chrome.webRequest.WebResponseCacheDetails) => {
-
-        // Remove this listener
-        chrome.webRequest.onCompleted.removeListener(requestCompletedCallback)
+    chrome.runtime.onMessage.addListener(function listener(url: string) {
+        chrome.runtime.onMessage.removeListener(listener)
 
         // Close the opened dialog
         getCloseDialogButton().click()
@@ -52,8 +49,7 @@ function downloadScheduleCSV() {
         const workbook = XLSX.read(bytes, { type: 'binary' })
         const data = XLSX.utils.sheet_to_json(workbook.Sheets[workbook.SheetNames[0]])
         downloadCSV(parseWorkdayData(data))
-    }
-    chrome.webRequest.onCompleted.addListener(requestCompletedCallback, { urls: ["<all_urls>"] })
+    })
     getExportButton().click()
 }
 
@@ -68,15 +64,15 @@ function addDownloadButton() {
     getExportButton().parentElement?.parentElement?.appendChild(downloadButton)
 }
 
-function removeDownloadButtonIfNeeded() {
+function removeDownloadButton() {
     const downloadButton = document.getElementById(downloadButtonId)
     downloadButton?.parentElement?.removeChild(downloadButton)
 }
 
 window.addEventListener('load', () => {
-    removeDownloadButtonIfNeeded()
+    removeDownloadButton()
     new MutationObserver(() => {
-        removeDownloadButtonIfNeeded()
+        removeDownloadButton()
         const onViewCoursesPage = document.title.indexOf('View My Courses') === 0
         if (onViewCoursesPage) addDownloadButton()
     }).observe(

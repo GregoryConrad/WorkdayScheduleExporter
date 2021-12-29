@@ -1,5 +1,5 @@
-# Generated js bundle
-out/main.js
+# Generated js
+out/*.js
 
 # Logs
 logs

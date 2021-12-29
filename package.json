@@ -10,7 +10,7 @@
     "url": "https://github.com/GregoryConrad/WorkdayScheduleExporter.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js"
+    "build": "node_modules/.bin/tsc && node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js"
   },
   "dependencies": {
     "xlsx": "^0.17.4"
