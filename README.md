@@ -1,6 +1,6 @@
 # Workday Schedule Exporter
 **Created by Gregory Conrad**
-
+![Extension Screenshot](/screenshot.png?raw=true "Extension in Action")
 Meant for use with WPI's Workday instance;
 not sure if this extension will work with other schools' Workday.
 If not, it should be easily adaptable in `main.ts`.
