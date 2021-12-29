@@ -1,0 +1,24 @@
+{
+  "name": "workday-schedule-exporter",
+  "version": "1.0.0",
+  "description": "Adds the functionality to export a course schedule from Workday as a CSV",
+  "main": "index.js",
+  "author": "Gregory Conrad",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GregoryConrad/WorkdayScheduleExporter.git"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js"
+  },
+  "dependencies": {
+    "xlsx": "^0.17.4"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.173",
+    "browserify": "^17.0.0",
+    "tsify": "^5.0.4",
+    "typescript": "^4.5.4"
+  }
+}

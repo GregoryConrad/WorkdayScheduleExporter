@@ -1,0 +1,12 @@
+{
+    "manifest_version": 3,
+    "name": "Workday Schedule Exporter",
+    "description": "Adds the functionality to export a course schedule from Workday as a CSV",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": ["https://wd5.myworkday.com/*"],
+            "js": ["main.js"]
+        }
+    ]
+}
