@@ -6,7 +6,7 @@ not sure if this extension will work with other schools' Workday.
 If not, it should be easily adaptable in `main.ts`.
 
 ## Usage
-1. Install the extension
+1. [Install the extension](https://chrome.google.com/webstore/detail/elloafhmffcedcmbdepancjijjccmail)
 2. Go to [Workday](https://wd5.myworkday.com/wpi/)
 3. Click "Academics"
 4. Click "View My Courses" on the right sidebar under "Planning & Registration"
@@ -19,10 +19,3 @@ If not, it should be easily adaptable in `main.ts`.
 To get started:
 - `npm install`
 - `npm run build` (also configured as a VS Code build task)
-
-## TODO
-- Update Chrome Web Store icon with `store-icon.png`
-- Add extension web store page to this readme
-- https://github.com/marketplace/actions/chrome-extension-upload-publish
-- OR
-- https://github.com/marketplace/actions/chrome-extension-upload-action
