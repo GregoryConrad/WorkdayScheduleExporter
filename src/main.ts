@@ -116,6 +116,11 @@ function createSchedule(sheet: XLSX.WorkSheet) {
  * - Process the returned spreadsheet and create the schedule
  */
 function startScheduleDownload() {
+    // The service worker doesn't wake up like it is supposed to for webRequest
+    // See https://bugs.chromium.org/p/chromium/issues/detail?id=1024211
+    // So we manually need to wake it up by sending a dummy message
+    // This is a hacky workaround to get Manifest V3 support until the issue is fixed
+    chrome.runtime.sendMessage('Wakey wakey it\'s time for schoo')
     chrome.runtime.onMessage.addListener(async function listener(url: string) {
 
         // Clean up
