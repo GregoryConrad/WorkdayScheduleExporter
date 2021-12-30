@@ -1,6 +1,6 @@
 {
   "name": "workday-schedule-exporter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Adds the functionality to export a course schedule from Workday",
   "main": "index.js",
   "author": "Gregory Conrad",
@@ -10,7 +10,9 @@
     "url": "https://github.com/GregoryConrad/WorkdayScheduleExporter.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/tsc && node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js",
+    "build": "npm run build-content-script && npm run build-worker",
+    "build-worker": "node_modules/.bin/browserify src/worker.ts -p [ tsify --noImplicitAny ] > out/worker.js",
+    "build-content-script": "node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js",
     "create-extension-zip": "npm run build && zip -r extension.zip out"
   },
   "dependencies": {
