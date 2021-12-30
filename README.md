@@ -19,7 +19,3 @@ If not, it should be easily adaptable in `main.ts`.
 To get started:
 - `npm install`
 - `npm run build` (also configured as a VS Code build task)
-
-## TODO
-- Update Chrome Web Store icon with `store-icon.png`
-- Add extension web store page to this readme
