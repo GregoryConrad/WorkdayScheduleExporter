@@ -1,0 +1,27 @@
+name: Publish Chrome Web Store Extension
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_publish:
+    name: Build & Publish Chrome Web Store Extension
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 12
+    - name: Build & Create extension.zip
+      run: |
+        npm ci
+        npm run create-extension-zip
+    - name: Upload & Publish
+      uses: mnao305/chrome-extension-upload@2.2.0
+      with:
+        file-path: extension.zip
+        extension-id: elloafhmffcedcmbdepancjijjccmail
+        client-id: ${{ secrets.CLIENT_ID }}
+        refresh-token: ${{ secrets.REFRESH_TOKEN }}

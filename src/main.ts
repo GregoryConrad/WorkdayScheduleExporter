@@ -85,17 +85,18 @@ function createSchedule(sheet: XLSX.WorkSheet) {
         })
         .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
         .forEach(row => {
-            const captureGroups = meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!
+            const [days, startTime, endTime, location] =
+                meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!.slice(1)
             schedule.addEvent(
                 row['Course Listing']!,
                 `${row['Section']} with ${row['Instructor']}`,
-                captureGroups[4],
-                `${row['Start Date']} ${captureGroups[2]}`,
-                `${row['Start Date']} ${captureGroups[3]}`,
+                location,
+                `${row['Start Date']} ${startTime}`,
+                `${row['Start Date']} ${endTime}`,
                 {
                     freq: 'WEEKLY',
-                    until: `${row['End Date']} ${captureGroups[3]}`,
-                    byday: convertDayOfWeekFormat(captureGroups[1]),
+                    until: `${row['End Date']} ${endTime}`,
+                    byday: convertDayOfWeekFormat(days),
                 },
             )
         })
@@ -121,7 +122,7 @@ function startScheduleDownload() {
         chrome.runtime.onMessage.removeListener(listener)
         getCloseDialogButton().click()
 
-        // Create the CSV
+        // Create the schedule
         const bytes = await fetchWorkdaySpreadsheet(url)
         const workbook = XLSX.read(bytes, { type: 'array' })
         createSchedule(workbook.Sheets[workbook.SheetNames[0]])
