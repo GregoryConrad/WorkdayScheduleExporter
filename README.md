@@ -3,7 +3,7 @@
 ![Extension Screenshot](/screenshot.png?raw=true "Extension in Action")
 Meant for use with WPI's Workday instance;
 not sure if this extension will work with other schools' Workday.
-If not, it should be easily adaptable in `main.ts`.
+If not, it should be easily adaptable in `src/parser.ts` (feel free to make a PR!).
 
 ## Usage
 1. [Install the extension](https://chrome.google.com/webstore/detail/elloafhmffcedcmbdepancjijjccmail)
