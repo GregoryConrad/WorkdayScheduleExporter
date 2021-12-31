@@ -1,3 +1,4 @@
+import browser from "webextension-polyfill"
 import { Message } from "./message"
 import { WorkBook } from "xlsx"
 import { exportSchedule } from "./parser"
@@ -28,7 +29,7 @@ function getCloseDialogButton() {
  * - Process the returned spreadsheet and create the schedule
  */
 function startScheduleDownload() {
-    chrome.runtime.connect().onMessage.addListener((message: Message) => {
+    browser.runtime.connect().onMessage.addListener((message: Message) => {
         switch (message.type) {
             case 'initialRequestCompleted':
                 getCloseDialogButton()?.click()

@@ -1,6 +1,6 @@
 {
   "name": "workday-schedule-exporter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Adds the functionality to export a course schedule from Workday",
   "main": "index.js",
   "author": "Gregory Conrad",
@@ -16,10 +16,11 @@
     "create-extension-zip": "npm run build && zip -r extension.zip out"
   },
   "dependencies": {
+    "webextension-polyfill": "^0.8.0",
     "xlsx": "^0.17.4"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.173",
+    "@types/webextension-polyfill": "^0.8.2",
     "browserify": "^17.0.0",
     "tsify": "^5.0.4",
     "typescript": "^4.5.4"

@@ -1,17 +1,18 @@
+import browser from "webextension-polyfill"
 import * as XLSX from "xlsx"
 import { Message } from "./message"
 
 // A service worker will not unload with an open port,
 //   so it is safe to store these variables here
-let port: chrome.runtime.Port | undefined = undefined
+let port: browser.Runtime.Port | undefined = undefined
 let alreadyProcessedRequest = false // prevents a webRequest.onCompleted loop
 
-chrome.runtime.onConnect.addListener(p => {
+browser.runtime.onConnect.addListener(p => {
     alreadyProcessedRequest = false
     port = p
 })
 
-chrome.webRequest.onCompleted.addListener(async ({ url }) => {
+browser.webRequest.onCompleted.addListener(async ({ url }) => {
     if (alreadyProcessedRequest) return;
     alreadyProcessedRequest = true
 
