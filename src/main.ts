@@ -13,7 +13,7 @@ function getExportButton() {
  * @returns the Workday dialog close button
  */
 function getCloseDialogButton() {
-    return document.querySelector('div[aria-label="Close"]') as HTMLElement
+    return document.querySelector('div[aria-label="Close"]') as HTMLElement | undefined
 }
 
 /**
@@ -31,7 +31,7 @@ function startScheduleDownload() {
     chrome.runtime.connect().onMessage.addListener((message: Message) => {
         switch (message.type) {
             case 'initialRequestCompleted':
-                getCloseDialogButton().click()
+                getCloseDialogButton()?.click()
                 break
             case 'spreadsheet':
                 const workbook = message.data as WorkBook
