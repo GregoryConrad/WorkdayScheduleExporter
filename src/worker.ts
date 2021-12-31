@@ -1,20 +1,27 @@
 import * as XLSX from "xlsx"
-import { Message } from "./message";
+import { Message } from "./message"
 
 // A service worker will not unload with an open port,
-//   so it is safe to store this port here
-let port: chrome.runtime.Port | undefined = undefined;
+//   so it is safe to store these variables here
+let port: chrome.runtime.Port | undefined = undefined
+let alreadyProcessedRequest = false // prevents a webRequest.onCompleted loop
 
-chrome.runtime.onConnect.addListener(p => { port = p });
+chrome.runtime.onConnect.addListener(p => {
+    alreadyProcessedRequest = false
+    port = p
+})
 
 chrome.webRequest.onCompleted.addListener(async ({ url }) => {
+    if (alreadyProcessedRequest) return;
+    alreadyProcessedRequest = true
+
     try {
         port!.postMessage(<Message>{ type: 'initialRequestCompleted' })
         const workbook = await fetchWorkdaySpreadsheet(url)
         port!.postMessage(<Message>{ type: 'spreadsheet', data: workbook })
     } catch (exception) {
         console.log('Failed to send the data to the port: ', exception)
-        port?.postMessage(<Message>{ type: 'error', data: exception })
+        port?.postMessage(<Message>{ type: 'error', data: `${exception}` })
     } finally {
         port?.disconnect()
         port = undefined
