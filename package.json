@@ -13,7 +13,7 @@
     "build": "npm run build-content-script && npm run build-worker",
     "build-worker": "node_modules/.bin/browserify src/worker.ts -p [ tsify --noImplicitAny ] > out/worker.js",
     "build-content-script": "node_modules/.bin/browserify src/main.ts -p [ tsify --noImplicitAny ] > out/main.js",
-    "create-extension-zip": "npm run build && zip -r extension.zip out"
+    "build-zip": "npm run build && node_modules/.bin/web-ext build"
   },
   "dependencies": {
     "webextension-polyfill": "^0.8.0",
@@ -23,6 +23,15 @@
     "@types/webextension-polyfill": "^0.8.2",
     "browserify": "^17.0.0",
     "tsify": "^5.0.4",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "web-ext": "^6.6.0"
+  },
+  "webExt": {
+    "sourceDir": "out",
+    "artifactsDir": ".",
+    "build": {
+      "filename": "extension.zip",
+      "overwriteDest": true
+    }
   }
 }
