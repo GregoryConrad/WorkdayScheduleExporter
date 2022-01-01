@@ -71,17 +71,20 @@ function removeDownloadButtonIfPresent() {
     downloadButton?.parentElement?.removeChild(downloadButton)
 }
 
-// Inject the download button if needed after page load
-// Workday sucks so we have to listen for mutations of the document title
-// (The document title is a placeholder until the page fully loads)
-window.addEventListener('load', () => {
+/**
+ * Adds the "Download Schedule" button if we are on the "View My Courses" page
+ */
+function setUpPage() {
     removeDownloadButtonIfPresent()
-    new MutationObserver(() => {
-        removeDownloadButtonIfPresent()
-        const onViewCoursesPage = document.title.indexOf('View My Courses') === 0
-        if (onViewCoursesPage) addDownloadButton()
-    }).observe(
-        document.querySelector('title')!,
-        { subtree: true, characterData: true, childList: true }
-    )
-})
+    const onViewCoursesPage = document.title.indexOf('View My Courses') === 0
+    if (onViewCoursesPage) addDownloadButton()
+}
+
+// Inject the download button if we are on the right page
+// Workday sucks so we also have to listen for mutations of the document title
+// (The document title is a placeholder until the page fully loads)
+setUpPage()
+new MutationObserver(setUpPage).observe(
+    document.querySelector('title')!,
+    { subtree: true, characterData: true, childList: true }
+)

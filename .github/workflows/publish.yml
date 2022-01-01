@@ -43,7 +43,7 @@ jobs:
     - run: web-ext sign
       working-directory: out
       env:
-        # WEB_EXT_ID: {c23c69a7-f889-447c-9d6b-7694be8035bc}
+        WEB_EXT_ID: {a0d8d9a8-47fe-47ec-adc6-588de16d412a}
         WEB_EXT_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
         WEB_EXT_API_SECRET: ${{ secrets.FIREFOX_API_SECRET }}
         WEB_EXT_TIMEOUT: 90000
