@@ -3,7 +3,7 @@ name: Publish Extension Online
 on:
   workflow_dispatch:
   release:
-    types: [published]
+    types: [released]
 
 jobs:
   build:
