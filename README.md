@@ -6,7 +6,7 @@ not sure if this extension will work with other schools' Workday.
 If not, it should be easily adaptable in `src/parser.ts` (feel free to make a PR!).
 
 ## Usage
-1. [Install the extension](https://chrome.google.com/webstore/detail/elloafhmffcedcmbdepancjijjccmail)
+1. Install the extension [on Chrome](https://chrome.google.com/webstore/detail/elloafhmffcedcmbdepancjijjccmail) or [on Firefox](https://addons.mozilla.org/en-US/firefox/addon/workday-schedule-exporter/)
 2. Go to [Workday](https://wd5.myworkday.com/wpi/)
 3. Click "Academics"
 4. Click "View My Courses" on the right sidebar under "Planning & Registration"
