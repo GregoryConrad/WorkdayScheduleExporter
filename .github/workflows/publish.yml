@@ -28,7 +28,7 @@ jobs:
     - uses: actions/download-artifact@v2
     - uses: mnao305/chrome-extension-upload@2.2.0
       with:
-        file-path: extension.zip
+        file-path: artifact/extension.zip
         extension-id: elloafhmffcedcmbdepancjijjccmail
         client-id: ${{ secrets.CLIENT_ID }}
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
@@ -41,7 +41,7 @@ jobs:
     - uses: actions/setup-node@v2
     - run: sudo npm install -g web-ext
     - run: web-ext sign
-      working-directory: out
+      working-directory: artifact/out
       env:
         WEB_EXT_ID: '{a0d8d9a8-47fe-47ec-adc6-588de16d412a}'
         WEB_EXT_API_KEY: ${{ secrets.FIREFOX_API_KEY }}
