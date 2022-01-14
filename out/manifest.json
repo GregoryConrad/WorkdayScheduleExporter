@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Workday Schedule Exporter",
     "description": "Adds the functionality to export a course schedule from Workday",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "author": "Gregory Conrad",
     "icons": {
         "16": "icons/icon16.png",
