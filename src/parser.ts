@@ -55,6 +55,7 @@ export function exportSchedule(sheet: XLSX.WorkSheet) {
             ],
         })
         .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
+        .filter(row => /^(Registered)|(Waitlisted)/.test(row['Registration Status'] ?? ''))
         .forEach(row => {
             const [days, startTime, endTime, location] =
                 meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!.slice(1)
