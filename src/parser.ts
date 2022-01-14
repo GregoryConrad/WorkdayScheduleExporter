@@ -5,7 +5,7 @@ import { ics } from "./ics"
  * Represents a row in the Workday excel spreadsheet
  */
 interface WorkdayDataRow {
-    ''?: string
+    'header'?: string
     'Course Listing'?: string
     'Credits'?: string
     'Grading Basis'?: string
@@ -44,16 +44,18 @@ function convertDayOfWeekFormat(workdayFormat: string) {
 export function exportSchedule(sheet: XLSX.WorkSheet) {
     const meetingPatternsRegex = /([MTWRFSU-]*) \| (.*) - (.*) \| ?(.*)/
     const schedule = ics()!
-    XLSX.utils
-        .sheet_to_json<WorkdayDataRow>(sheet, {
-            raw: false,
-            range: 'A1:L50',
-            header: [
-                '', 'Course Listing', 'Credits', 'Grading Basis', 'Section',
-                'Instructional Format', 'Delivery Mode', 'Meeting Patterns',
-                'Registration Status', 'Instructor', 'Start Date', 'End Date',
-            ],
-        })
+    const dataRows = XLSX.utils.sheet_to_json<WorkdayDataRow>(sheet, {
+        raw: false,
+        range: 'A1:L100',
+        header: [
+            'header', 'Course Listing', 'Credits', 'Grading Basis', 'Section',
+            'Instructional Format', 'Delivery Mode', 'Meeting Patterns',
+            'Registration Status', 'Instructor', 'Start Date', 'End Date',
+        ],
+    })
+    const droppedCoursesStart = dataRows.findIndex((row) => row['header'] === 'My Dropped/Withdrawn Courses')
+    dataRows
+        .slice(0, droppedCoursesStart === -1 ? dataRows.length : droppedCoursesStart)
         .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
         .forEach(row => {
             const [days, startTime, endTime, location] =
