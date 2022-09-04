@@ -1,0 +1,939 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29FA001A28C5078500B9213B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA001928C5078500B9213B /* AppDelegate.swift */; };
+		29FA001C28C5078500B9213B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA001B28C5078500B9213B /* SceneDelegate.swift */; };
+		29FA001F28C5078500B9213B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29FA001D28C5078500B9213B /* LaunchScreen.storyboard */; };
+		29FA002228C5078500B9213B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29FA002028C5078500B9213B /* Main.storyboard */; };
+		29FA002B28C5078500B9213B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA002A28C5078500B9213B /* AppDelegate.swift */; };
+		29FA002E28C5078500B9213B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29FA002C28C5078500B9213B /* Main.storyboard */; };
+		29FA003628C5078500B9213B /* Workday Schedule Exporter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29FA003528C5078500B9213B /* Workday Schedule Exporter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		29FA004028C5078500B9213B /* Workday Schedule Exporter Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29FA003F28C5078500B9213B /* Workday Schedule Exporter Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		29FA004628C5078500B9213B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000928C5078400B9213B /* Main.html */; };
+		29FA004728C5078500B9213B /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000928C5078400B9213B /* Main.html */; };
+		29FA004828C5078500B9213B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000B28C5078400B9213B /* Icon.png */; };
+		29FA004928C5078500B9213B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000B28C5078400B9213B /* Icon.png */; };
+		29FA004A28C5078500B9213B /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000C28C5078400B9213B /* Style.css */; };
+		29FA004B28C5078500B9213B /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000C28C5078400B9213B /* Style.css */; };
+		29FA004C28C5078500B9213B /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000D28C5078400B9213B /* Script.js */; };
+		29FA004D28C5078500B9213B /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000D28C5078400B9213B /* Script.js */; };
+		29FA004E28C5078500B9213B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA000E28C5078400B9213B /* ViewController.swift */; };
+		29FA004F28C5078500B9213B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA000E28C5078400B9213B /* ViewController.swift */; };
+		29FA005028C5078500B9213B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000F28C5078500B9213B /* Assets.xcassets */; };
+		29FA005128C5078500B9213B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29FA000F28C5078500B9213B /* Assets.xcassets */; };
+		29FA005228C5078500B9213B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA001128C5078500B9213B /* SafariWebExtensionHandler.swift */; };
+		29FA005328C5078500B9213B /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FA001128C5078500B9213B /* SafariWebExtensionHandler.swift */; };
+		29FA006928C5078500B9213B /* worker.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006528C5078500B9213B /* worker.js */; };
+		29FA006A28C5078500B9213B /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006628C5078500B9213B /* main.js */; };
+		29FA006B28C5078500B9213B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006728C5078500B9213B /* icons */; };
+		29FA006C28C5078500B9213B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006828C5078500B9213B /* manifest.json */; };
+		29FA006D28C5078500B9213B /* worker.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006528C5078500B9213B /* worker.js */; };
+		29FA006E28C5078500B9213B /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006628C5078500B9213B /* main.js */; };
+		29FA006F28C5078500B9213B /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006728C5078500B9213B /* icons */; };
+		29FA007028C5078500B9213B /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 29FA006828C5078500B9213B /* manifest.json */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		29FA003728C5078500B9213B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29FA000328C5078400B9213B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29FA003428C5078500B9213B;
+			remoteInfo = "Workday Schedule Exporter Extension (iOS)";
+		};
+		29FA004128C5078500B9213B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29FA000328C5078400B9213B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29FA003E28C5078500B9213B;
+			remoteInfo = "Workday Schedule Exporter Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		29FA005928C5078500B9213B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				29FA003628C5078500B9213B /* Workday Schedule Exporter Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA006028C5078500B9213B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				29FA004028C5078500B9213B /* Workday Schedule Exporter Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		29FA000A28C5078400B9213B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = ../Base.lproj/Main.html; sourceTree = "<group>"; };
+		29FA000B28C5078400B9213B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		29FA000C28C5078400B9213B /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		29FA000D28C5078400B9213B /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		29FA000E28C5078400B9213B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		29FA000F28C5078500B9213B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29FA001128C5078500B9213B /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		29FA001628C5078500B9213B /* Workday Schedule Exporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workday Schedule Exporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FA001928C5078500B9213B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		29FA001B28C5078500B9213B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		29FA001E28C5078500B9213B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		29FA002128C5078500B9213B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29FA002328C5078500B9213B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29FA002828C5078500B9213B /* Workday Schedule Exporter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Workday Schedule Exporter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FA002A28C5078500B9213B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		29FA002D28C5078500B9213B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29FA002F28C5078500B9213B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29FA003028C5078500B9213B /* Workday Schedule Exporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workday Schedule Exporter.entitlements"; sourceTree = "<group>"; };
+		29FA003528C5078500B9213B /* Workday Schedule Exporter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Workday Schedule Exporter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FA003A28C5078500B9213B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29FA003F28C5078500B9213B /* Workday Schedule Exporter Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Workday Schedule Exporter Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29FA004428C5078500B9213B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29FA004528C5078500B9213B /* Workday Schedule Exporter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Workday Schedule Exporter.entitlements"; sourceTree = "<group>"; };
+		29FA006528C5078500B9213B /* worker.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = worker.js; path = ../../../out/worker.js; sourceTree = "<group>"; };
+		29FA006628C5078500B9213B /* main.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = main.js; path = ../../../out/main.js; sourceTree = "<group>"; };
+		29FA006728C5078500B9213B /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = ../../../out/icons; sourceTree = "<group>"; };
+		29FA006828C5078500B9213B /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../out/manifest.json; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29FA001328C5078500B9213B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA002528C5078500B9213B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003228C5078500B9213B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003C28C5078500B9213B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29FA000228C5078400B9213B = {
+			isa = PBXGroup;
+			children = (
+				29FA000728C5078400B9213B /* Shared (App) */,
+				29FA001028C5078500B9213B /* Shared (Extension) */,
+				29FA001828C5078500B9213B /* iOS (App) */,
+				29FA002928C5078500B9213B /* macOS (App) */,
+				29FA003928C5078500B9213B /* iOS (Extension) */,
+				29FA004328C5078500B9213B /* macOS (Extension) */,
+				29FA001728C5078500B9213B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		29FA000728C5078400B9213B /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA000E28C5078400B9213B /* ViewController.swift */,
+				29FA000F28C5078500B9213B /* Assets.xcassets */,
+				29FA000828C5078400B9213B /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		29FA000828C5078400B9213B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29FA000928C5078400B9213B /* Main.html */,
+				29FA000B28C5078400B9213B /* Icon.png */,
+				29FA000C28C5078400B9213B /* Style.css */,
+				29FA000D28C5078400B9213B /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		29FA001028C5078500B9213B /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA006428C5078500B9213B /* Resources */,
+				29FA001128C5078500B9213B /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		29FA001728C5078500B9213B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29FA001628C5078500B9213B /* Workday Schedule Exporter.app */,
+				29FA002828C5078500B9213B /* Workday Schedule Exporter.app */,
+				29FA003528C5078500B9213B /* Workday Schedule Exporter Extension.appex */,
+				29FA003F28C5078500B9213B /* Workday Schedule Exporter Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29FA001828C5078500B9213B /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA001928C5078500B9213B /* AppDelegate.swift */,
+				29FA001B28C5078500B9213B /* SceneDelegate.swift */,
+				29FA001D28C5078500B9213B /* LaunchScreen.storyboard */,
+				29FA002028C5078500B9213B /* Main.storyboard */,
+				29FA002328C5078500B9213B /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		29FA002928C5078500B9213B /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA002A28C5078500B9213B /* AppDelegate.swift */,
+				29FA002C28C5078500B9213B /* Main.storyboard */,
+				29FA002F28C5078500B9213B /* Info.plist */,
+				29FA003028C5078500B9213B /* Workday Schedule Exporter.entitlements */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		29FA003928C5078500B9213B /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA003A28C5078500B9213B /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		29FA004328C5078500B9213B /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				29FA004428C5078500B9213B /* Info.plist */,
+				29FA004528C5078500B9213B /* Workday Schedule Exporter.entitlements */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		29FA006428C5078500B9213B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29FA006528C5078500B9213B /* worker.js */,
+				29FA006628C5078500B9213B /* main.js */,
+				29FA006728C5078500B9213B /* icons */,
+				29FA006828C5078500B9213B /* manifest.json */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29FA001528C5078500B9213B /* Workday Schedule Exporter (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FA005A28C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter (iOS)" */;
+			buildPhases = (
+				29FA001228C5078500B9213B /* Sources */,
+				29FA001328C5078500B9213B /* Frameworks */,
+				29FA001428C5078500B9213B /* Resources */,
+				29FA005928C5078500B9213B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29FA003828C5078500B9213B /* PBXTargetDependency */,
+			);
+			name = "Workday Schedule Exporter (iOS)";
+			productName = "Workday Schedule Exporter (iOS)";
+			productReference = 29FA001628C5078500B9213B /* Workday Schedule Exporter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29FA002728C5078500B9213B /* Workday Schedule Exporter (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FA006128C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter (macOS)" */;
+			buildPhases = (
+				29FA002428C5078500B9213B /* Sources */,
+				29FA002528C5078500B9213B /* Frameworks */,
+				29FA002628C5078500B9213B /* Resources */,
+				29FA006028C5078500B9213B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29FA004228C5078500B9213B /* PBXTargetDependency */,
+			);
+			name = "Workday Schedule Exporter (macOS)";
+			productName = "Workday Schedule Exporter (macOS)";
+			productReference = 29FA002828C5078500B9213B /* Workday Schedule Exporter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29FA003428C5078500B9213B /* Workday Schedule Exporter Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FA005628C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter Extension (iOS)" */;
+			buildPhases = (
+				29FA003128C5078500B9213B /* Sources */,
+				29FA003228C5078500B9213B /* Frameworks */,
+				29FA003328C5078500B9213B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Workday Schedule Exporter Extension (iOS)";
+			productName = "Workday Schedule Exporter Extension (iOS)";
+			productReference = 29FA003528C5078500B9213B /* Workday Schedule Exporter Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		29FA003E28C5078500B9213B /* Workday Schedule Exporter Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29FA005D28C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter Extension (macOS)" */;
+			buildPhases = (
+				29FA003B28C5078500B9213B /* Sources */,
+				29FA003C28C5078500B9213B /* Frameworks */,
+				29FA003D28C5078500B9213B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Workday Schedule Exporter Extension (macOS)";
+			productName = "Workday Schedule Exporter Extension (macOS)";
+			productReference = 29FA003F28C5078500B9213B /* Workday Schedule Exporter Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29FA000328C5078400B9213B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					29FA001528C5078500B9213B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					29FA002728C5078500B9213B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					29FA003428C5078500B9213B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					29FA003E28C5078500B9213B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 29FA000628C5078400B9213B /* Build configuration list for PBXProject "Workday Schedule Exporter" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29FA000228C5078400B9213B;
+			productRefGroup = 29FA001728C5078500B9213B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29FA001528C5078500B9213B /* Workday Schedule Exporter (iOS) */,
+				29FA002728C5078500B9213B /* Workday Schedule Exporter (macOS) */,
+				29FA003428C5078500B9213B /* Workday Schedule Exporter Extension (iOS) */,
+				29FA003E28C5078500B9213B /* Workday Schedule Exporter Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29FA001428C5078500B9213B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA004828C5078500B9213B /* Icon.png in Resources */,
+				29FA001F28C5078500B9213B /* LaunchScreen.storyboard in Resources */,
+				29FA004628C5078500B9213B /* Main.html in Resources */,
+				29FA004C28C5078500B9213B /* Script.js in Resources */,
+				29FA005028C5078500B9213B /* Assets.xcassets in Resources */,
+				29FA002228C5078500B9213B /* Main.storyboard in Resources */,
+				29FA004A28C5078500B9213B /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA002628C5078500B9213B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA004928C5078500B9213B /* Icon.png in Resources */,
+				29FA004B28C5078500B9213B /* Style.css in Resources */,
+				29FA002E28C5078500B9213B /* Main.storyboard in Resources */,
+				29FA004D28C5078500B9213B /* Script.js in Resources */,
+				29FA005128C5078500B9213B /* Assets.xcassets in Resources */,
+				29FA004728C5078500B9213B /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003328C5078500B9213B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA007028C5078500B9213B /* manifest.json in Resources */,
+				29FA006F28C5078500B9213B /* icons in Resources */,
+				29FA006D28C5078500B9213B /* worker.js in Resources */,
+				29FA006E28C5078500B9213B /* main.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003D28C5078500B9213B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA006C28C5078500B9213B /* manifest.json in Resources */,
+				29FA006B28C5078500B9213B /* icons in Resources */,
+				29FA006928C5078500B9213B /* worker.js in Resources */,
+				29FA006A28C5078500B9213B /* main.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29FA001228C5078500B9213B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA004E28C5078500B9213B /* ViewController.swift in Sources */,
+				29FA001A28C5078500B9213B /* AppDelegate.swift in Sources */,
+				29FA001C28C5078500B9213B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA002428C5078500B9213B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA004F28C5078500B9213B /* ViewController.swift in Sources */,
+				29FA002B28C5078500B9213B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003128C5078500B9213B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA005228C5078500B9213B /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29FA003B28C5078500B9213B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29FA005328C5078500B9213B /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		29FA003828C5078500B9213B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29FA003428C5078500B9213B /* Workday Schedule Exporter Extension (iOS) */;
+			targetProxy = 29FA003728C5078500B9213B /* PBXContainerItemProxy */;
+		};
+		29FA004228C5078500B9213B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29FA003E28C5078500B9213B /* Workday Schedule Exporter Extension (macOS) */;
+			targetProxy = 29FA004128C5078500B9213B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		29FA000928C5078400B9213B /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29FA000A28C5078400B9213B /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		29FA001D28C5078500B9213B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29FA001E28C5078500B9213B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		29FA002028C5078500B9213B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29FA002128C5078500B9213B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29FA002C28C5078500B9213B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29FA002D28C5078500B9213B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29FA005428C5078500B9213B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		29FA005528C5078500B9213B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		29FA005728C5078500B9213B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter.Extension";
+				PRODUCT_NAME = "Workday Schedule Exporter Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29FA005828C5078500B9213B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter.Extension";
+				PRODUCT_NAME = "Workday Schedule Exporter Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29FA005B28C5078500B9213B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter";
+				PRODUCT_NAME = "Workday Schedule Exporter";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29FA005C28C5078500B9213B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter";
+				PRODUCT_NAME = "Workday Schedule Exporter";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29FA005E28C5078500B9213B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Workday Schedule Exporter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter.Extension";
+				PRODUCT_NAME = "Workday Schedule Exporter Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		29FA005F28C5078500B9213B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/Workday Schedule Exporter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter.Extension";
+				PRODUCT_NAME = "Workday Schedule Exporter Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		29FA006228C5078500B9213B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Workday Schedule Exporter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter";
+				PRODUCT_NAME = "Workday Schedule Exporter";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		29FA006328C5078500B9213B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "macOS (App)/Workday Schedule Exporter.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Workday Schedule Exporter";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gsconrad.Workday-Schedule-Exporter";
+				PRODUCT_NAME = "Workday Schedule Exporter";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29FA000628C5078400B9213B /* Build configuration list for PBXProject "Workday Schedule Exporter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FA005428C5078500B9213B /* Debug */,
+				29FA005528C5078500B9213B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FA005628C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FA005728C5078500B9213B /* Debug */,
+				29FA005828C5078500B9213B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FA005A28C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FA005B28C5078500B9213B /* Debug */,
+				29FA005C28C5078500B9213B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FA005D28C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FA005E28C5078500B9213B /* Debug */,
+				29FA005F28C5078500B9213B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29FA006128C5078500B9213B /* Build configuration list for PBXNativeTarget "Workday Schedule Exporter (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29FA006228C5078500B9213B /* Debug */,
+				29FA006328C5078500B9213B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29FA000328C5078400B9213B /* Project object */;
+}
