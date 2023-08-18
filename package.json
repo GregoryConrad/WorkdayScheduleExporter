@@ -16,6 +16,7 @@
     "build-zip": "npm run build && node_modules/.bin/web-ext build"
   },
   "dependencies": {
+    "ics": "^3.4.0",
     "webextension-polyfill": "^0.8.0",
     "xlsx": "^0.17.4"
   },
