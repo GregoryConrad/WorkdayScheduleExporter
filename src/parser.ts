@@ -65,8 +65,11 @@ export function exportSchedule(sheet: XLSX.WorkSheet) {
                 endTime.split(":")
             const [month, day, badYear] =
                 row['Start Date']!.split("/")
+            const [endMonth, endDay, badEndYear] =
+                row['End Date']!.split("/")
             // Workday for some ungodly reason puts the year as two digits.
             const year = `20${badYear}`
+            const endYear = `20${badEndYear}`
             // I'm sorry for this awful looking stuff, TypeScript is not my bread and butter.
             let startArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(startHour), parseInt(startMinute)]
             let endArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(endHour), parseInt(endMinute)]
@@ -76,7 +79,7 @@ export function exportSchedule(sheet: XLSX.WorkSheet) {
                 end: endArray,
                 description: `${row['Section']} with ${row['Instructor']}`,
                 location: spot,
-                recurrenceRule: `FREQ=WEEKLY;BYDAY=${convertDayOfWeekFormat(days)};INTERVAL=1;UNTIL=${Date.parse(row['End Date']!)}`
+                recurrenceRule: `FREQ=WEEKLY;BYDAY=${convertDayOfWeekFormat(days)};INTERVAL=1;UNTIL=${endYear}${endMonth.length > 1 ? endMonth : "0" + endMonth}${endDay.length > 1 ? endDay : "0" + endDay}`
             })
         })
     schedule.createEvents(classes, (error, value) => {
