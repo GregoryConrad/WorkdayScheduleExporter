@@ -70,8 +70,6 @@ export function exportSchedule(sheet: XLSX.WorkSheet) {
             // I'm sorry for this awful looking stuff, TypeScript is not my bread and butter.
             let startArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(startHour), parseInt(startMinute)]
             let endArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(endHour), parseInt(endMinute)]
-             console.log(startArray)
-             console.log(endArray)
             classes.push({
                 title: row['Course Listing']!,
                 start: startArray,
