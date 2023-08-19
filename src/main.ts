@@ -4,10 +4,17 @@ import { WorkBook } from "xlsx"
 import { exportSchedule } from "./parser"
 
 /**
+ * @returns the proper location for the download button
+ */
+function getDownloadButtonSpot() {
+    return document.querySelector('div[title="Export to Excel"]') as HTMLElement
+}
+
+/**
  * @returns the export excel spreadsheet button on Workday
  */
 function getExportButton() {
-    return document.querySelector('div[title="Export to Excel"]') as HTMLElement
+    return document.querySelector('div.WDDK div[title="Export to Excel"]') as HTMLElement
 }
 
 /**
@@ -60,7 +67,7 @@ function addDownloadButton() {
     downloadButton.appendChild(document.createTextNode('Download Schedule'))
     downloadButton.onclick = startScheduleDownload
     downloadButton.style.marginLeft = '24px'
-    getExportButton().parentElement?.parentElement?.appendChild(downloadButton)
+    getDownloadButtonSpot().parentElement?.parentElement?.appendChild(downloadButton)
 }
 
 /**

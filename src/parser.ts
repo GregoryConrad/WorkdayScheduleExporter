@@ -1,5 +1,5 @@
 import * as XLSX from "xlsx"
-import { ics } from "./ics"
+import * as schedule from "ics"
 
 /**
  * Represents a row in the Workday excel spreadsheet
@@ -43,7 +43,7 @@ function convertDayOfWeekFormat(workdayFormat: string) {
  */
 export function exportSchedule(sheet: XLSX.WorkSheet) {
     const meetingPatternsRegex = /([MTWRFSU-]*) \| (.*) - (.*) \| ?(.*)/
-    const schedule = ics()!
+    let classes: schedule.EventAttributes[] = []
     XLSX.utils
         .sheet_to_json<WorkdayDataRow>(sheet, {
             raw: false,
@@ -57,20 +57,43 @@ export function exportSchedule(sheet: XLSX.WorkSheet) {
         .filter(row => meetingPatternsRegex.test(row['Meeting Patterns'] ?? ''))
         .filter(row => /^(Registered)|(Waitlisted)/.test(row['Registration Status'] ?? ''))
         .forEach(row => {
-            const [days, startTime, endTime, location] =
+            const [days, startTime, endTime, spot] =
                 meetingPatternsRegex.exec(row['Meeting Patterns'] ?? '')!.slice(1)
-            schedule.addEvent(
-                row['Course Listing']!,
-                `${row['Section']} with ${row['Instructor']}`,
-                location,
-                `${row['Start Date']} ${startTime}`,
-                `${row['Start Date']} ${endTime}`,
-                {
-                    freq: 'WEEKLY',
-                    until: `${row['End Date']} ${endTime}`,
-                    byday: convertDayOfWeekFormat(days),
-                },
-            )
+            const [startHour, startMinute] =
+                startTime.split(":")
+            const [endHour, endMinute] =
+                endTime.split(":")
+            const [month, day, badYear] =
+                row['Start Date']!.split("/")
+            const [endMonth, endDay, badEndYear] =
+                row['End Date']!.split("/")
+            // Workday for some ungodly reason puts the year as two digits.
+            const year = `20${badYear}`
+            const endYear = `20${badEndYear}`
+            // I'm sorry for this awful looking stuff, TypeScript is not my bread and butter.
+            let startArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(startHour), parseInt(startMinute)]
+            let endArray: schedule.DateArray = [parseInt(year), parseInt(month), parseInt(day), parseInt(endHour), parseInt(endMinute)]
+            classes.push({
+                title: row['Course Listing']!,
+                start: startArray,
+                end: endArray,
+                description: `${row['Section']} with ${row['Instructor']}`,
+                location: spot,
+                recurrenceRule: `FREQ=WEEKLY;BYDAY=${convertDayOfWeekFormat(days)};INTERVAL=1;UNTIL=${endYear}${endMonth.length > 1 ? endMonth : "0" + endMonth}${endDay.length > 1 ? endDay : "0" + endDay}`
+            })
         })
-    schedule.download('schedule', '.ics')
+    schedule.createEvents(classes, (error, value) => {
+        if (error) {
+            console.error(error)
+            alert("There was a problem with generating your calendar file. Check logs for more information.")
+            return
+        }
+
+        // Ripped from old ics.js download function, by Gregory Conrad
+        const a = document.createElement('a')
+            a.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(value)
+            a.download = "schedule.ics"
+            a.style.display = 'none'
+            a.click()
+    })
 }
