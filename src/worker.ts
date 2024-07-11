@@ -27,7 +27,7 @@ browser.webRequest.onCompleted.addListener(async ({ url }) => {
         port?.disconnect()
         port = undefined
     }
-}, { urls: ["https://wd5.myworkday.com/*"] })
+}, { urls: ["https://www.myworkday.com/*"] })
 
 /**
  * Jumps through hoops to fetch the actual excel file Workday exports

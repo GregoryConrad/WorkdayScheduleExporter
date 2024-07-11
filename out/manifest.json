@@ -14,12 +14,12 @@
         "webRequest"
     ],
     "host_permissions": [
-        "https://wd5.myworkday.com/*"
+        "https://www.myworkday.com/*"
     ],
     "content_scripts": [
         {
             "matches": [
-                "https://wd5.myworkday.com/*"
+                "https://www.myworkday.com/*"
             ],
             "js": [
                 "main.js"
